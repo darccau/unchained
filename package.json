@@ -8,6 +8,8 @@
     "lib": "lib"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^1.1.7",
+    "@chakra-ui/react": "^1.8.7",
     "acorn": "^8.7.0",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",
@@ -205,7 +207,8 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
-    "prettier": "prettier -write ."
+    "prettier": "prettier -write .",
+    "lint": "next lint"
   },
   "keywords": [],
   "author": "darccau",
