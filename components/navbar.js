@@ -16,6 +16,8 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
+import { IoLogoGithub } from 'react-icons/io5'
+import { SiGitbook } from 'react-icons/si'
 
 const LinkItem = ({ href, path, target, children, ...props }) => {
   const active = path === href
@@ -56,46 +58,71 @@ const Navbar = props => {
         align="center"
         justify="space-between"
       >
-        <Flex lign="center" mr={5}>
+        <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
           </Heading>
         </Flex>
+
         <Stack
           direction={{ base: 'column', md: 'row' }}
           display={{ base: 'none', md: 'flex' }}
           width={{ base: 'full', md: 'auto' }}
           alignItems="center"
           flexGrow={1}
-          mt={{ base: 4, nmd: 0 }}
+          mt={{ base: 4, md: 0 }}
         >
-          <LinkItem href="/works" path={path}>
-            Works
-          </LinkItem>
-
           <LinkItem href="/posts" path={path}>
             Posts
           </LinkItem>
+          <LinkItem
+            target="_blank"
+            href="https://gitbook.com"
+            path={path}
+            display="inline-flex"
+            alignItems="center"
+            style={{ gap: 4 }}
+            pl={2}
+          >
+            <SiGitbook />
+            Hacking
+          </LinkItem>{' '}
+          <LinkItem
+            target="_blank"
+            href="https://github.com/darccau/unchained"
+            path={path}
+            display="inline-flex"
+            alignItems="center"
+            style={{ gap: 4 }}
+            pl={2}
+          >
+            <IoLogoGithub />
+            Source
+          </LinkItem>
         </Stack>
-        <Box flex={1} align="rigth">
+
+        <Box flex={1} align="right">
           <ThemeToggleButton />
+
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu>
-              <MenuButton as={IconButton} icon={<HamburgerIcon />} />
+            <Menu isLazy id="navbar-menu">
+              <MenuButton
+                as={IconButton}
+                icon={<HamburgerIcon />}
+                variant="outline"
+                aria-label="Options"
+              />
               <MenuList>
                 <NextLink href="/" passHref>
                   <MenuItem as={Link}>About</MenuItem>
                 </NextLink>
-
-                <NextLink href="/works" passHref>
-                  <MenuItem as={Link}>Works</MenuItem>
-                </NextLink>
-
                 <NextLink href="/posts" passHref>
                   <MenuItem as={Link}>Posts</MenuItem>
                 </NextLink>
-
-                <MenuItem as={Link} href="https://github.com/darccau/unchained">
+                <MenuItem
+                  as={Link}
+                  href="https://github.com/craftzdog/craftzdog-homepage"
+                >
                   View Source
                 </MenuItem>
               </MenuList>
