@@ -74,7 +74,7 @@ const Navbar = props => {
         >
           <LinkItem
             target="_blank"
-            href="https://gitbook.com"
+            href="https://darccau.gitbook.io/hacking/"
             path={path}
             display="inline-flex"
             alignItems="center"
